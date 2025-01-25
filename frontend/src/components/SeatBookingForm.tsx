@@ -92,7 +92,14 @@ const SeatBookingForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50"
+    style={{
+      transform: 'scale(0.75)', // Scale to 75%
+      transformOrigin: 'top left', // Set the origin point for scaling
+      width: '133.33%', // Compensate for the reduced scale to keep the layout proportional
+      height: '100%',
+      paddingTop: '8rem',
+    }}>
       <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md transform transition-all hover:scale-105">
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           🚌 Seat Booking
