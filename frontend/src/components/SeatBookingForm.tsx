@@ -93,8 +93,10 @@ const SeatBookingForm = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
-      <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">SEAT BOOKING FORM</h1>
+      <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md transform transition-all hover:scale-105">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          🚌 Seat Booking
+        </h1>
 
         {/* Toast Container */}
         <ToastContainer
@@ -111,7 +113,7 @@ const SeatBookingForm = () => {
         />
 
         {/* Form Container */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">NAME:</label>
@@ -119,7 +121,7 @@ const SeatBookingForm = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all hover:border-blue-300"
               placeholder="Enter your name"
               required
             />
@@ -153,7 +155,7 @@ const SeatBookingForm = () => {
             <select
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all hover:border-blue-300"
               required
             >
               <option value="">Select Destination</option>
@@ -170,7 +172,7 @@ const SeatBookingForm = () => {
             <select
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all hover:border-blue-300"
               required
             >
               <option value="">Select Time</option>
@@ -184,7 +186,7 @@ const SeatBookingForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full p-3 bg-green-500 text-white rounded-lg font-bold hover:bg-green-600 transition-all"
+            className="w-full p-3 bg-green-500 text-white rounded-lg font-bold hover:bg-green-600 transition-all transform hover:scale-105 active:scale-95"
             disabled={isLoading} // Disable button when loading
           >
             {isLoading ? (
@@ -200,7 +202,7 @@ const SeatBookingForm = () => {
         {/* Go Back to Seat UI Button */}
         <button
           onClick={handleGoBack}
-          className="w-full mt-4 p-3 bg-red-400 text-white rounded-lg font-bold hover:bg-red-500 transition-all"
+          className="w-full mt-4 p-3 bg-red-400 text-white rounded-lg font-bold hover:bg-red-500 transition-all transform hover:scale-105 active:scale-95"
         >
           Go Back to Seat UI
         </button>

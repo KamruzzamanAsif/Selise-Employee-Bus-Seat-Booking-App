@@ -157,8 +157,18 @@ const SeatUI = () => {
   };
 
   return (
-    <div className="p-4 flex flex-col items-center bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">SEATS UI</h1>
+    <div className="p-4 flex flex-col items-center bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen pt-11">
+      <div className="text-center">
+        <div className="flex items-center justify-center space-x-4">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            🚌 Seat Reservation System
+            </h1>
+        </div>
+        {/* <p className="text-lg text-gray-600 mt-2">Book your seat hassle-free and enjoy the ride!</p> */}
+        <div className="mt-4 text-2xl font-bold text-red-600">
+            ⏳ Hurry! Only few seats left!
+        </div>
+      </div>
 
       {/* Admin Mode Indicator */}
       {isAdmin && (
@@ -188,20 +198,50 @@ const SeatUI = () => {
       />
 
       {/* Bus Selection Dropdown */}
-      <div className="mb-6 w-60 max-w-md">
-        <label className="block text-sm font-medium text-gray-700">Select a Bus:</label>
-        <select
-          value={selectedBus}
-          onChange={handleBusSelect}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-        >
-          {buses.map((bus) => (
-            <option key={bus.id} value={bus.id}>
-              {bus.number}
-            </option>
-          ))}
-        </select>
-      </div>
+        {/* Bus Selection Dropdown */}
+        <div className="mb-6 w-80 max-w-md">
+        <div className="flex items-center space-x-4">
+            {/* Enhanced "Select a Bus" Text */}
+            <span className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Select a Bus:
+            </span>
+            {/* Dropdown Menu */}
+            <div className="relative flex-1">
+            <select
+                value={selectedBus}
+                onChange={handleBusSelect}
+                className="mt-1 block w-full p-2 pl-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all appearance-none bg-white hover:bg-gray-50"
+            >
+                {buses.map((bus) => (
+                <option key={bus.id} value={bus.id}>
+                    {bus.number}
+                </option>
+                ))}
+            </select>
+            {/* Bus Icon */}
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <span className="text-gray-500">🚌</span>
+            </div>
+            {/* Dropdown Arrow Icon */}
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg
+                className="w-5 h-5 text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                />
+                </svg>
+            </div>
+            </div>
+        </div>
+        </div>
 
       {/* Loading State */}
       {isLoading ? (
